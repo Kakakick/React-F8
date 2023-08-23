@@ -15,20 +15,31 @@
 
     </div>
     <script type="text/babel">
-        function Header() {
+        function Header(props) {
+            console.log(props);
             return (
-                <div className="header">Header</div>
+                <div className="post-item">
+                    <img
+                        src={props.image}
+                        alt="Ảnh gái xinh"
+                    />
+                    <h2 className="post-title">{props.title}</h2>
+                </div>
             )
         }
 
-        const app = (
-            <div className="wrapper">
-                <Header />
-                <div className="header">Header</div>
-            </div>
-        )
+        function App() {
+            console.log(<Header/>);
 
-        ReactDOM.render(app, document.getElementById('root'))
+            return (
+                <Header
+                    image="https://antimatter.vn/wp-content/uploads/2022/10/hinh-anh-gai-xinh-de-thuong.jpg"
+                    title="Ảnh gái xinh"
+                />
+            )
+        }
+
+        ReactDOM.render(App(), document.getElementById('root'))
     </script>
 </body>
 
